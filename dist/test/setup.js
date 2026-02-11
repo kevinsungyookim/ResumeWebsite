@@ -18,4 +18,8 @@ const localStorageMock = (() => {
     };
 })();
 global.localStorage = localStorageMock;
+// Mock window.scrollTo for testing
+window.scrollTo = () => {
+    // No-op in test environment
+};
 //# sourceMappingURL=setup.js.map

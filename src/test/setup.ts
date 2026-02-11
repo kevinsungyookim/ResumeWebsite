@@ -20,3 +20,8 @@ const localStorageMock = (() => {
 })();
 
 global.localStorage = localStorageMock as Storage;
+
+// Mock window.scrollTo for testing
+window.scrollTo = () => {
+  // No-op in test environment
+};
