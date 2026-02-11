@@ -1,0 +1,34 @@
+{
+  "name": "typescript-webpage-starter",
+  "version": "1.0.0",
+  "description": "A simple TypeScript webpage starter project for beginners",
+  "main": "dist/main.js",
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc --watch",
+    "serve": "http-server . -p 3000 -o",
+    "dev": "concurrently \"npm run watch\" \"npm run serve\"",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "typescript",
+    "beginner",
+    "learning",
+    "webpage"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/express": "^5.0.6",
+    "@types/node": "^18.19.130",
+    "concurrently": "^8.2.2",
+    "copyfiles": "^2.4.1",
+    "http-server": "^14.1.1",
+    "nodemon": "^3.1.11",
+    "typescript": "^5.9.3"
+  },
+  "dependencies": {
+    "ejs": "^4.0.1",
+    "express": "^5.2.1"
+  }
+}
