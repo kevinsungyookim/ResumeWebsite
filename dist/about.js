@@ -1,17 +1,15 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
 // About/Home page module
-const types_1 = require("./shared/types");
-const navigation_1 = require("./shared/navigation");
-const animations_1 = require("./shared/animations");
-const storage_1 = require("./shared/storage");
+import { PageId } from './shared/types.js';
+import { initNavigation } from './shared/navigation.js';
+import { initAnimations } from './shared/animations.js';
+import { saveToStorage, loadFromStorage } from './shared/storage.js';
 /**
  * Tracks page views using localStorage
  */
 function trackPageView() {
-    const viewCount = (0, storage_1.loadFromStorage)('about-page-views') || 0;
+    const viewCount = loadFromStorage('about-page-views') || 0;
     const newCount = viewCount + 1;
-    (0, storage_1.saveToStorage)('about-page-views', newCount);
+    saveToStorage('about-page-views', newCount);
     console.log(`About page viewed ${newCount} time(s)`);
 }
 /**
@@ -19,9 +17,9 @@ function trackPageView() {
  */
 function initAboutPage() {
     // Initialize navigation
-    (0, navigation_1.initNavigation)(types_1.PageId.About);
+    initNavigation(PageId.About);
     // Initialize animations
-    (0, animations_1.initAnimations)();
+    initAnimations();
     // Track page view
     trackPageView();
 }

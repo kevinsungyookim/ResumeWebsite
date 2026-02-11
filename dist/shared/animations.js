@@ -1,14 +1,9 @@
-"use strict";
 // Animation system for the resume website
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.initAnimations = initAnimations;
-exports.animateOnScroll = animateOnScroll;
-exports.smoothScrollTo = smoothScrollTo;
 /**
  * Initializes entrance animations using Intersection Observer
  * Applies animation classes when elements enter the viewport
  */
-function initAnimations() {
+export function initAnimations() {
     // Check if Intersection Observer is supported
     if (!('IntersectionObserver' in window)) {
         // Fallback: immediately show all animated elements
@@ -40,7 +35,7 @@ function initAnimations() {
  * Applies entrance animation classes to an element
  * @param element - The HTML element to animate
  */
-function animateOnScroll(element) {
+export function animateOnScroll(element) {
     const animationType = element.getAttribute('data-animation');
     if (animationType) {
         element.classList.add('animated', animationType);
@@ -51,7 +46,7 @@ function animateOnScroll(element) {
  * @param targetId - The ID of the target element
  * @param duration - Duration of the scroll animation in milliseconds (default: 800)
  */
-function smoothScrollTo(targetId, duration = 800) {
+export function smoothScrollTo(targetId, duration = 800) {
     const target = document.getElementById(targetId);
     if (!target) {
         console.warn(`Target element with ID "${targetId}" not found`);

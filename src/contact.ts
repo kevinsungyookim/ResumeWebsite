@@ -1,8 +1,8 @@
 // Contact page module
-import { PageId, ContactLink, ContactFormData } from './shared/types';
-import { initNavigation } from './shared/navigation';
-import { initAnimations } from './shared/animations';
-import { saveToStorage } from './shared/storage';
+import { PageId, ContactLink, ContactFormData } from './shared/types.js';
+import { initNavigation } from './shared/navigation.js';
+import { initAnimations } from './shared/animations.js';
+import { saveToStorage } from './shared/storage.js';
 
 /**
  * Contact links data

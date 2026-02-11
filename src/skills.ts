@@ -1,7 +1,7 @@
 // Skills page module
-import { PageId, SkillCategory } from './shared/types';
-import { initNavigation } from './shared/navigation';
-import { initAnimations } from './shared/animations';
+import { PageId, SkillCategory } from './shared/types.js';
+import { initNavigation } from './shared/navigation.js';
+import { initAnimations } from './shared/animations.js';
 
 /**
  * Sample skills data organized by category

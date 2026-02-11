@@ -1,10 +1,8 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-const vitest_1 = require("vitest");
-const experience_1 = require("./experience");
-(0, vitest_1.describe)('Experience Page', () => {
-    (0, vitest_1.describe)('renderExperienceEntry', () => {
-        (0, vitest_1.it)('should render complete entry with all fields', () => {
+import { describe, it, expect } from 'vitest';
+import { renderExperienceEntry, renderExperienceSection } from './experience';
+describe('Experience Page', () => {
+    describe('renderExperienceEntry', () => {
+        it('should render complete entry with all fields', () => {
             const entry = {
                 id: 'exp-1',
                 title: 'Senior Developer',
@@ -17,15 +15,15 @@ const experience_1 = require("./experience");
                     'Architecture design'
                 ]
             };
-            const html = (0, experience_1.renderExperienceEntry)(entry);
-            (0, vitest_1.expect)(html).toContain('Senior Developer');
-            (0, vitest_1.expect)(html).toContain('Tech Corp');
-            (0, vitest_1.expect)(html).toContain('2022-01 - Present');
-            (0, vitest_1.expect)(html).toContain('Leading development team');
-            (0, vitest_1.expect)(html).toContain('Code reviews');
-            (0, vitest_1.expect)(html).toContain('Architecture design');
+            const html = renderExperienceEntry(entry);
+            expect(html).toContain('Senior Developer');
+            expect(html).toContain('Tech Corp');
+            expect(html).toContain('2022-01 - Present');
+            expect(html).toContain('Leading development team');
+            expect(html).toContain('Code reviews');
+            expect(html).toContain('Architecture design');
         });
-        (0, vitest_1.it)('should handle entry without accomplishments', () => {
+        it('should handle entry without accomplishments', () => {
             const entry = {
                 id: 'exp-2',
                 title: 'Developer',
@@ -35,13 +33,13 @@ const experience_1 = require("./experience");
                 description: 'Development work',
                 accomplishments: []
             };
-            const html = (0, experience_1.renderExperienceEntry)(entry);
-            (0, vitest_1.expect)(html).toContain('Developer');
-            (0, vitest_1.expect)(html).toContain('Company');
-            (0, vitest_1.expect)(html).toContain('Development work');
-            (0, vitest_1.expect)(html).not.toContain('<ul class="accomplishments">');
+            const html = renderExperienceEntry(entry);
+            expect(html).toContain('Developer');
+            expect(html).toContain('Company');
+            expect(html).toContain('Development work');
+            expect(html).not.toContain('<ul class="accomplishments">');
         });
-        (0, vitest_1.it)('should format date range correctly', () => {
+        it('should format date range correctly', () => {
             const entry = {
                 id: 'exp-3',
                 title: 'Developer',
@@ -51,10 +49,10 @@ const experience_1 = require("./experience");
                 description: 'Work',
                 accomplishments: []
             };
-            const html = (0, experience_1.renderExperienceEntry)(entry);
-            (0, vitest_1.expect)(html).toContain('2020-06 - 2022-03');
+            const html = renderExperienceEntry(entry);
+            expect(html).toContain('2020-06 - 2022-03');
         });
-        (0, vitest_1.it)('should display "Present" for current positions', () => {
+        it('should display "Present" for current positions', () => {
             const entry = {
                 id: 'exp-4',
                 title: 'Developer',
@@ -64,12 +62,12 @@ const experience_1 = require("./experience");
                 description: 'Current role',
                 accomplishments: []
             };
-            const html = (0, experience_1.renderExperienceEntry)(entry);
-            (0, vitest_1.expect)(html).toContain('2023-01 - Present');
+            const html = renderExperienceEntry(entry);
+            expect(html).toContain('2023-01 - Present');
         });
     });
-    (0, vitest_1.describe)('renderExperienceSection', () => {
-        (0, vitest_1.it)('should render multiple entries in reverse chronological order', () => {
+    describe('renderExperienceSection', () => {
+        it('should render multiple entries in reverse chronological order', () => {
             const entries = [
                 {
                     id: 'exp-1',
@@ -99,15 +97,15 @@ const experience_1 = require("./experience");
                     accomplishments: []
                 }
             ];
-            const html = (0, experience_1.renderExperienceSection)(entries);
+            const html = renderExperienceSection(entries);
             // Current job (Present) should come first
             const seniorIndex = html.indexOf('Senior Developer');
             const midIndex = html.indexOf('Mid Developer');
             const juniorIndex = html.indexOf('Junior Developer');
-            (0, vitest_1.expect)(seniorIndex).toBeLessThan(midIndex);
-            (0, vitest_1.expect)(midIndex).toBeLessThan(juniorIndex);
+            expect(seniorIndex).toBeLessThan(midIndex);
+            expect(midIndex).toBeLessThan(juniorIndex);
         });
-        (0, vitest_1.it)('should handle single entry', () => {
+        it('should handle single entry', () => {
             const entries = [
                 {
                     id: 'exp-1',
@@ -119,16 +117,16 @@ const experience_1 = require("./experience");
                     accomplishments: []
                 }
             ];
-            const html = (0, experience_1.renderExperienceSection)(entries);
-            (0, vitest_1.expect)(html).toContain('Developer');
-            (0, vitest_1.expect)(html).toContain('Company');
+            const html = renderExperienceSection(entries);
+            expect(html).toContain('Developer');
+            expect(html).toContain('Company');
         });
-        (0, vitest_1.it)('should handle empty entries array', () => {
+        it('should handle empty entries array', () => {
             const entries = [];
-            const html = (0, experience_1.renderExperienceSection)(entries);
-            (0, vitest_1.expect)(html).toBe('');
+            const html = renderExperienceSection(entries);
+            expect(html).toBe('');
         });
-        (0, vitest_1.it)('should sort entries with same end date by start date', () => {
+        it('should sort entries with same end date by start date', () => {
             const entries = [
                 {
                     id: 'exp-1',
@@ -149,12 +147,12 @@ const experience_1 = require("./experience");
                     accomplishments: []
                 }
             ];
-            const html = (0, experience_1.renderExperienceSection)(entries);
+            const html = renderExperienceSection(entries);
             // Both end at same time, but Job B started later so should appear first
             const jobAIndex = html.indexOf('Job A');
             const jobBIndex = html.indexOf('Job B');
-            (0, vitest_1.expect)(jobAIndex).toBeGreaterThan(-1);
-            (0, vitest_1.expect)(jobBIndex).toBeGreaterThan(-1);
+            expect(jobAIndex).toBeGreaterThan(-1);
+            expect(jobBIndex).toBeGreaterThan(-1);
         });
     });
 });

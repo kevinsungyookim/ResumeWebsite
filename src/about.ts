@@ -1,8 +1,8 @@
 // About/Home page module
-import { PageId } from './shared/types';
-import { initNavigation } from './shared/navigation';
-import { initAnimations } from './shared/animations';
-import { saveToStorage, loadFromStorage } from './shared/storage';
+import { PageId } from './shared/types.js';
+import { initNavigation } from './shared/navigation.js';
+import { initAnimations } from './shared/animations.js';
+import { saveToStorage, loadFromStorage } from './shared/storage.js';
 
 /**
  * Tracks page views using localStorage

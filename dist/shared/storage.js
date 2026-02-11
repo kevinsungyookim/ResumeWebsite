@@ -1,15 +1,9 @@
-"use strict";
 // LocalStorage utilities with error handling
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.isStorageAvailable = isStorageAvailable;
-exports.saveToStorage = saveToStorage;
-exports.loadFromStorage = loadFromStorage;
-exports.clearStorage = clearStorage;
 /**
  * Checks if localStorage is available in the current browser
  * @returns true if localStorage is available, false otherwise
  */
-function isStorageAvailable() {
+export function isStorageAvailable() {
     try {
         const testKey = '__storage_test__';
         localStorage.setItem(testKey, 'test');
@@ -26,7 +20,7 @@ function isStorageAvailable() {
  * @param data - The data to save (will be JSON stringified)
  * @returns true if save was successful, false otherwise
  */
-function saveToStorage(key, data) {
+export function saveToStorage(key, data) {
     if (!isStorageAvailable()) {
         console.warn('localStorage is not available');
         return false;
@@ -51,7 +45,7 @@ function saveToStorage(key, data) {
  * @param key - The storage key
  * @returns The parsed data or null if not found or error occurred
  */
-function loadFromStorage(key) {
+export function loadFromStorage(key) {
     if (!isStorageAvailable()) {
         return null;
     }
@@ -73,7 +67,7 @@ function loadFromStorage(key) {
  * Clears a specific key from localStorage
  * @param key - The storage key to clear
  */
-function clearStorage(key) {
+export function clearStorage(key) {
     if (!isStorageAvailable()) {
         return;
     }

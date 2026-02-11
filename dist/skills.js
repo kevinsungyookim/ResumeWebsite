@@ -1,11 +1,7 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.renderSkillCategory = renderSkillCategory;
-exports.renderSkillsSection = renderSkillsSection;
 // Skills page module
-const types_1 = require("./shared/types");
-const navigation_1 = require("./shared/navigation");
-const animations_1 = require("./shared/animations");
+import { PageId } from './shared/types.js';
+import { initNavigation } from './shared/navigation.js';
+import { initAnimations } from './shared/animations.js';
 /**
  * Sample skills data organized by category
  */
@@ -34,7 +30,7 @@ const skillsData = [
 /**
  * Renders a single skill category as HTML
  */
-function renderSkillCategory(category) {
+export function renderSkillCategory(category) {
     const skillsHTML = category.skills
         .map(skill => `<span class="skill-tag">${skill}</span>`)
         .join('');
@@ -50,7 +46,7 @@ function renderSkillCategory(category) {
 /**
  * Renders all skill categories with visual distinction
  */
-function renderSkillsSection(categories) {
+export function renderSkillsSection(categories) {
     return categories.map(category => renderSkillCategory(category)).join('\n');
 }
 /**
@@ -58,14 +54,14 @@ function renderSkillsSection(categories) {
  */
 function initSkillsPage() {
     // Initialize navigation
-    (0, navigation_1.initNavigation)(types_1.PageId.Skills);
+    initNavigation(PageId.Skills);
     // Render skill categories
     const container = document.getElementById('skills-container');
     if (container) {
         container.innerHTML = renderSkillsSection(skillsData);
     }
     // Initialize animations
-    (0, animations_1.initAnimations)();
+    initAnimations();
 }
 // Initialize when DOM is ready
 if (document.readyState === 'loading') {

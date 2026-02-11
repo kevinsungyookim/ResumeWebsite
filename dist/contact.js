@@ -1,15 +1,8 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.renderContactLinks = renderContactLinks;
-exports.isValidEmail = isValidEmail;
-exports.validateForm = validateForm;
-exports.saveFormSubmission = saveFormSubmission;
-exports.loadFormSubmissions = loadFormSubmissions;
 // Contact page module
-const types_1 = require("./shared/types");
-const navigation_1 = require("./shared/navigation");
-const animations_1 = require("./shared/animations");
-const storage_1 = require("./shared/storage");
+import { PageId } from './shared/types.js';
+import { initNavigation } from './shared/navigation.js';
+import { initAnimations } from './shared/animations.js';
+import { saveToStorage } from './shared/storage.js';
 /**
  * Contact links data
  */
@@ -36,7 +29,7 @@ const contactLinks = [
 /**
  * Renders contact links as HTML
  */
-function renderContactLinks(links) {
+export function renderContactLinks(links) {
     return links.map(link => `
         <a href="${link.url}" class="contact-link" target="_blank" rel="noopener noreferrer" aria-label="${link.label}">
             <span class="contact-icon">${link.icon}</span>
@@ -47,14 +40,14 @@ function renderContactLinks(links) {
 /**
  * Validates email format
  */
-function isValidEmail(email) {
+export function isValidEmail(email) {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return emailRegex.test(email);
 }
 /**
  * Validates form data
  */
-function validateForm(name, email, message) {
+export function validateForm(name, email, message) {
     if (!name.trim()) {
         return 'Name is required';
     }
@@ -72,15 +65,15 @@ function validateForm(name, email, message) {
 /**
  * Saves form submission to localStorage
  */
-function saveFormSubmission(formData) {
+export function saveFormSubmission(formData) {
     const submissions = loadFormSubmissions();
     submissions.push(formData);
-    return (0, storage_1.saveToStorage)('contact-submissions', submissions);
+    return saveToStorage('contact-submissions', submissions);
 }
 /**
  * Loads all form submissions from localStorage
  */
-function loadFormSubmissions() {
+export function loadFormSubmissions() {
     const stored = localStorage.getItem('contact-submissions');
     if (!stored)
         return [];
@@ -146,7 +139,7 @@ function showMessage(text, type) {
  */
 function initContactPage() {
     // Initialize navigation
-    (0, navigation_1.initNavigation)(types_1.PageId.Contact);
+    initNavigation(PageId.Contact);
     // Render contact links
     const linksContainer = document.getElementById('contact-links-container');
     if (linksContainer) {
@@ -158,7 +151,7 @@ function initContactPage() {
         form.addEventListener('submit', handleFormSubmit);
     }
     // Initialize animations
-    (0, animations_1.initAnimations)();
+    initAnimations();
 }
 // Initialize when DOM is ready
 if (document.readyState === 'loading') {

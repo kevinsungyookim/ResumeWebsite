@@ -1,17 +1,15 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-const vitest_1 = require("vitest");
-const storage_1 = require("./storage");
-(0, vitest_1.describe)('Storage Utilities', () => {
-    (0, vitest_1.beforeEach)(() => {
+import { describe, it, expect, beforeEach } from 'vitest';
+import { isStorageAvailable, saveToStorage, loadFromStorage, clearStorage } from './storage';
+describe('Storage Utilities', () => {
+    beforeEach(() => {
         // Clear localStorage before each test
         localStorage.clear();
     });
-    (0, vitest_1.describe)('isStorageAvailable', () => {
-        (0, vitest_1.it)('should return true when localStorage is available', () => {
-            (0, vitest_1.expect)((0, storage_1.isStorageAvailable)()).toBe(true);
+    describe('isStorageAvailable', () => {
+        it('should return true when localStorage is available', () => {
+            expect(isStorageAvailable()).toBe(true);
         });
-        (0, vitest_1.it)('should return false when localStorage is unavailable', () => {
+        it('should return false when localStorage is unavailable', () => {
             // Save original localStorage
             const originalLocalStorage = global.localStorage;
             // Replace with a mock that throws
@@ -27,7 +25,7 @@ const storage_1 = require("./storage");
                 writable: true,
                 configurable: true,
             });
-            (0, vitest_1.expect)((0, storage_1.isStorageAvailable)()).toBe(false);
+            expect(isStorageAvailable()).toBe(false);
             // Restore original localStorage
             Object.defineProperty(global, 'localStorage', {
                 value: originalLocalStorage,
@@ -36,14 +34,14 @@ const storage_1 = require("./storage");
             });
         });
     });
-    (0, vitest_1.describe)('saveToStorage', () => {
-        (0, vitest_1.it)('should save data successfully', () => {
+    describe('saveToStorage', () => {
+        it('should save data successfully', () => {
             const testData = { name: 'John', age: 30 };
-            const result = (0, storage_1.saveToStorage)('test-key', testData);
-            (0, vitest_1.expect)(result).toBe(true);
-            (0, vitest_1.expect)(localStorage.getItem('test-key')).toBe(JSON.stringify(testData));
+            const result = saveToStorage('test-key', testData);
+            expect(result).toBe(true);
+            expect(localStorage.getItem('test-key')).toBe(JSON.stringify(testData));
         });
-        (0, vitest_1.it)('should handle quota exceeded error', () => {
+        it('should handle quota exceeded error', () => {
             // Save original localStorage
             const originalLocalStorage = global.localStorage;
             // Replace with a mock that throws quota exceeded
@@ -61,8 +59,8 @@ const storage_1 = require("./storage");
                 writable: true,
                 configurable: true,
             });
-            const result = (0, storage_1.saveToStorage)('test-key', { data: 'value' });
-            (0, vitest_1.expect)(result).toBe(false);
+            const result = saveToStorage('test-key', { data: 'value' });
+            expect(result).toBe(false);
             // Restore original localStorage
             Object.defineProperty(global, 'localStorage', {
                 value: originalLocalStorage,
@@ -70,7 +68,7 @@ const storage_1 = require("./storage");
                 configurable: true,
             });
         });
-        (0, vitest_1.it)('should return false when localStorage is unavailable', () => {
+        it('should return false when localStorage is unavailable', () => {
             // Save original localStorage
             const originalLocalStorage = global.localStorage;
             // Replace with a mock that throws
@@ -86,8 +84,8 @@ const storage_1 = require("./storage");
                 writable: true,
                 configurable: true,
             });
-            const result = (0, storage_1.saveToStorage)('test-key', { data: 'value' });
-            (0, vitest_1.expect)(result).toBe(false);
+            const result = saveToStorage('test-key', { data: 'value' });
+            expect(result).toBe(false);
             // Restore original localStorage
             Object.defineProperty(global, 'localStorage', {
                 value: originalLocalStorage,
@@ -96,25 +94,25 @@ const storage_1 = require("./storage");
             });
         });
     });
-    (0, vitest_1.describe)('loadFromStorage', () => {
-        (0, vitest_1.it)('should load data successfully', () => {
+    describe('loadFromStorage', () => {
+        it('should load data successfully', () => {
             const testData = { name: 'Jane', age: 25 };
             localStorage.setItem('test-key', JSON.stringify(testData));
-            const result = (0, storage_1.loadFromStorage)('test-key');
-            (0, vitest_1.expect)(result).toEqual(testData);
+            const result = loadFromStorage('test-key');
+            expect(result).toEqual(testData);
         });
-        (0, vitest_1.it)('should return null when key does not exist', () => {
-            const result = (0, storage_1.loadFromStorage)('non-existent-key');
-            (0, vitest_1.expect)(result).toBeNull();
+        it('should return null when key does not exist', () => {
+            const result = loadFromStorage('non-existent-key');
+            expect(result).toBeNull();
         });
-        (0, vitest_1.it)('should handle malformed JSON and clear corrupted data', () => {
+        it('should handle malformed JSON and clear corrupted data', () => {
             // Set malformed JSON
             localStorage.setItem('test-key', 'invalid-json{');
-            const result = (0, storage_1.loadFromStorage)('test-key');
-            (0, vitest_1.expect)(result).toBeNull();
-            (0, vitest_1.expect)(localStorage.getItem('test-key')).toBeNull();
+            const result = loadFromStorage('test-key');
+            expect(result).toBeNull();
+            expect(localStorage.getItem('test-key')).toBeNull();
         });
-        (0, vitest_1.it)('should return null when localStorage is unavailable', () => {
+        it('should return null when localStorage is unavailable', () => {
             // Save original localStorage
             const originalLocalStorage = global.localStorage;
             // Replace with a mock that throws
@@ -130,8 +128,8 @@ const storage_1 = require("./storage");
                 writable: true,
                 configurable: true,
             });
-            const result = (0, storage_1.loadFromStorage)('test-key');
-            (0, vitest_1.expect)(result).toBeNull();
+            const result = loadFromStorage('test-key');
+            expect(result).toBeNull();
             // Restore original localStorage
             Object.defineProperty(global, 'localStorage', {
                 value: originalLocalStorage,
@@ -140,14 +138,14 @@ const storage_1 = require("./storage");
             });
         });
     });
-    (0, vitest_1.describe)('clearStorage', () => {
-        (0, vitest_1.it)('should clear specific key from storage', () => {
+    describe('clearStorage', () => {
+        it('should clear specific key from storage', () => {
             localStorage.setItem('test-key', 'test-value');
-            (0, vitest_1.expect)(localStorage.getItem('test-key')).toBe('test-value');
-            (0, storage_1.clearStorage)('test-key');
-            (0, vitest_1.expect)(localStorage.getItem('test-key')).toBeNull();
+            expect(localStorage.getItem('test-key')).toBe('test-value');
+            clearStorage('test-key');
+            expect(localStorage.getItem('test-key')).toBeNull();
         });
-        (0, vitest_1.it)('should handle errors gracefully', () => {
+        it('should handle errors gracefully', () => {
             // Save original localStorage
             const originalLocalStorage = global.localStorage;
             // Replace with a mock that throws
@@ -164,7 +162,7 @@ const storage_1 = require("./storage");
                 configurable: true,
             });
             // Should not throw
-            (0, vitest_1.expect)(() => (0, storage_1.clearStorage)('test-key')).not.toThrow();
+            expect(() => clearStorage('test-key')).not.toThrow();
             // Restore original localStorage
             Object.defineProperty(global, 'localStorage', {
                 value: originalLocalStorage,

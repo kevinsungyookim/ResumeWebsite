@@ -1,7 +1,7 @@
 // Projects page module
-import { PageId, ProjectEntry } from './shared/types';
-import { initNavigation } from './shared/navigation';
-import { initAnimations } from './shared/animations';
+import { PageId, ProjectEntry } from './shared/types.js';
+import { initNavigation } from './shared/navigation.js';
+import { initAnimations } from './shared/animations.js';
 
 /**
  * Sample projects data

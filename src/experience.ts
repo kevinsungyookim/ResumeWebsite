@@ -1,7 +1,7 @@
 // Experience page module
-import { PageId, ExperienceEntry } from './shared/types';
-import { initNavigation } from './shared/navigation';
-import { initAnimations } from './shared/animations';
+import { PageId, ExperienceEntry } from './shared/types.js';
+import { initNavigation } from './shared/navigation.js';
+import { initAnimations } from './shared/animations.js';
 
 /**
  * Sample experience data

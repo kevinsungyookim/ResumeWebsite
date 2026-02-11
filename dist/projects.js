@@ -1,11 +1,7 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.renderProjectCard = renderProjectCard;
-exports.renderProjectsSection = renderProjectsSection;
 // Projects page module
-const types_1 = require("./shared/types");
-const navigation_1 = require("./shared/navigation");
-const animations_1 = require("./shared/animations");
+import { PageId } from './shared/types.js';
+import { initNavigation } from './shared/navigation.js';
+import { initAnimations } from './shared/animations.js';
 /**
  * Sample projects data
  */
@@ -38,7 +34,7 @@ const projectsData = [
 /**
  * Renders a single project card as HTML
  */
-function renderProjectCard(project) {
+export function renderProjectCard(project) {
     const technologiesHTML = project.technologies
         .map(tech => `<span class="tech-tag">${tech}</span>`)
         .join('');
@@ -74,7 +70,7 @@ function renderProjectCard(project) {
 /**
  * Renders all project cards
  */
-function renderProjectsSection(projects) {
+export function renderProjectsSection(projects) {
     return projects.map(project => renderProjectCard(project)).join('\n');
 }
 /**
@@ -82,14 +78,14 @@ function renderProjectsSection(projects) {
  */
 function initProjectsPage() {
     // Initialize navigation
-    (0, navigation_1.initNavigation)(types_1.PageId.Projects);
+    initNavigation(PageId.Projects);
     // Render project cards
     const container = document.getElementById('projects-container');
     if (container) {
         container.innerHTML = renderProjectsSection(projectsData);
     }
     // Initialize animations
-    (0, animations_1.initAnimations)();
+    initAnimations();
 }
 // Initialize when DOM is ready
 if (document.readyState === 'loading') {

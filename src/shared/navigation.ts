@@ -1,5 +1,5 @@
 // Navigation system for the resume website
-import { PageId } from './types';
+import { PageId } from './types.js';
 
 /**
  * Navigation configuration for all pages

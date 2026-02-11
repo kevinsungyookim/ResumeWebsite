@@ -1,11 +1,7 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.renderExperienceEntry = renderExperienceEntry;
-exports.renderExperienceSection = renderExperienceSection;
 // Experience page module
-const types_1 = require("./shared/types");
-const navigation_1 = require("./shared/navigation");
-const animations_1 = require("./shared/animations");
+import { PageId } from './shared/types.js';
+import { initNavigation } from './shared/navigation.js';
+import { initAnimations } from './shared/animations.js';
 /**
  * Sample experience data
  */
@@ -56,7 +52,7 @@ const experienceData = [
 /**
  * Renders a single experience entry as HTML
  */
-function renderExperienceEntry(entry) {
+export function renderExperienceEntry(entry) {
     const endDateDisplay = entry.endDate === 'Present' ? 'Present' : entry.endDate;
     const dateRange = `${entry.startDate} - ${endDateDisplay}`;
     const accomplishmentsHTML = entry.accomplishments && entry.accomplishments.length > 0
@@ -79,7 +75,7 @@ function renderExperienceEntry(entry) {
 /**
  * Renders all experience entries in reverse chronological order
  */
-function renderExperienceSection(entries) {
+export function renderExperienceSection(entries) {
     // Sort by start date in reverse chronological order (newest first)
     const sortedEntries = [...entries].sort((a, b) => {
         // Handle "Present" as the most recent date
@@ -94,14 +90,14 @@ function renderExperienceSection(entries) {
  */
 function initExperiencePage() {
     // Initialize navigation
-    (0, navigation_1.initNavigation)(types_1.PageId.Experience);
+    initNavigation(PageId.Experience);
     // Render experience entries
     const container = document.getElementById('experience-container');
     if (container) {
         container.innerHTML = renderExperienceSection(experienceData);
     }
     // Initialize animations
-    (0, animations_1.initAnimations)();
+    initAnimations();
 }
 // Initialize when DOM is ready
 if (document.readyState === 'loading') {
