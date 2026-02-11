@@ -1,8 +1,8 @@
 {
-  "name": "typescript-webpage-starter",
+  "name": "resume-website",
   "version": "1.0.0",
-  "description": "A simple TypeScript webpage starter project for beginners",
-  "main": "dist/main.js",
+  "description": "A professional resume and portfolio website built with TypeScript",
+  "main": "dist/about.js",
   "scripts": {
     "build": "tsc",
     "watch": "tsc --watch",
@@ -12,23 +12,18 @@
   },
   "keywords": [
     "typescript",
-    "beginner",
-    "learning",
-    "webpage"
+    "resume",
+    "portfolio",
+    "professional",
+    "website"
   ],
   "author": "",
   "license": "MIT",
   "devDependencies": {
-    "@types/express": "^5.0.6",
     "@types/node": "^18.19.130",
     "concurrently": "^8.2.2",
     "copyfiles": "^2.4.1",
     "http-server": "^14.1.1",
-    "nodemon": "^3.1.11",
     "typescript": "^5.9.3"
-  },
-  "dependencies": {
-    "ejs": "^4.0.1",
-    "express": "^5.2.1"
   }
 }

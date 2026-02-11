@@ -23,3 +23,6 @@ npm-debug.log*
 views/
 src/server.ts
 src/server.js
+
+# Kiro 
+.kiro/
