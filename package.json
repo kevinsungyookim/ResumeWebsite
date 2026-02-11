@@ -8,7 +8,9 @@
     "watch": "tsc --watch",
     "serve": "http-server . -p 3000 -o",
     "dev": "concurrently \"npm run watch\" \"npm run serve\"",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:ui": "vitest --ui"
   },
   "keywords": [
     "typescript",
@@ -20,10 +22,15 @@
   "author": "",
   "license": "MIT",
   "devDependencies": {
+    "@types/jsdom": "^27.0.0",
     "@types/node": "^18.19.130",
+    "@vitest/ui": "^1.6.0",
     "concurrently": "^8.2.2",
     "copyfiles": "^2.4.1",
+    "fast-check": "^4.5.3",
     "http-server": "^14.1.1",
-    "typescript": "^5.9.3"
+    "jsdom": "^28.0.0",
+    "typescript": "^5.9.3",
+    "vitest": "^1.6.0"
   }
 }
