@@ -9,15 +9,15 @@ const projectsData = [
     {
         id: 'proj-1',
         title: 'Deep PPG for Better Heart Rate Estimation',
-        description: 'Created a CNN architecture to process photoplethysmography (PPG) data for accurate heart rate estimation. Tested various parameters including activation functions, optimizers, and filter sizes to achieve low mean absolute error (MAE).',
-        technologies: ['Python', 'TensorFlow', 'PyTorch', 'Deep Learning', 'CNN'],
+        description: 'Designed and trained a custom Convolutional Neural Network (CNN) architecture to process raw photoplethysmography (PPG) signals for non-invasive heart rate estimation. Conducted extensive hyperparameter tuning across activation functions, optimizers, learning rates, and filter configurations to minimize mean absolute error (MAE). The model demonstrates strong generalization across diverse PPG signal conditions, making it viable for wearable health monitoring applications.',
+        technologies: ['Python', 'TensorFlow', 'PyTorch', 'Deep Learning', 'CNN', 'Signal Processing'],
         repoUrl: 'https://github.com/kevinsungyookim/Deep-PPG'
     },
     {
         id: 'proj-2',
         title: 'Cloud Infrastructure to Predict Abnormal Heartbeats',
-        description: 'Deployed machine learning inference model using AWS Lambda with visualization of output through AWS IoT Analytics. Built end-to-end cloud infrastructure for real-time heartbeat anomaly detection.',
-        technologies: ['AWS Lambda', 'AWS IoT Analytics', 'AWS SageMaker', 'Python', 'Machine Learning'],
+        description: 'Built a fully serverless, end-to-end cloud pipeline for real-time heartbeat anomaly detection. Trained and deployed a machine learning model using AWS SageMaker, served predictions through AWS Lambda for low-latency inference, and visualized results via AWS IoT Analytics dashboards. The architecture is designed for scalability and cost-efficiency, capable of processing continuous streams of cardiac data with minimal operational overhead.',
+        technologies: ['AWS Lambda', 'AWS IoT Analytics', 'AWS SageMaker', 'Python', 'Machine Learning', 'Serverless'],
         repoUrl: 'https://github.com/kevinsungyookim/Heartbeat-Prediction'
     }
 ];

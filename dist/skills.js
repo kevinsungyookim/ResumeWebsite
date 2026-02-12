@@ -8,23 +8,28 @@ import { initAnimations } from './shared/animations.js';
 const skillsData = [
     {
         id: 'core',
-        name: 'Core Competencies',
-        skills: ['Software Development', 'Cloud Computing (AWS)', 'Distributed Systems', 'CI/CD']
+        name: '🎯 Core Competencies',
+        skills: ['Software Development', 'System Design', 'Cloud Computing (AWS)', 'Distributed Systems', 'Microservices Architecture', 'CI/CD', 'Operational Excellence', 'Real-Time Monitoring']
     },
     {
         id: 'languages',
-        name: 'Programming Languages',
-        skills: ['Java', 'Python', 'TypeScript', 'JavaScript', 'C', 'C++', 'HTML', 'CSS']
+        name: '💻 Programming Languages',
+        skills: ['Java', 'Python', 'TypeScript', 'JavaScript', 'C', 'C++', 'SQL', 'HTML', 'CSS']
     },
     {
         id: 'cloud',
-        name: 'Cloud & DevOps',
-        skills: ['AWS Lambda', 'AWS IoT Analytics', 'AWS SageMaker', 'Docker', 'CI/CD Pipelines']
+        name: '☁️ Cloud & DevOps',
+        skills: ['AWS Lambda', 'AWS DynamoDB', 'AWS SQS/SNS', 'AWS CloudWatch', 'AWS IoT Analytics', 'AWS SageMaker', 'AWS CDK', 'Docker', 'CI/CD Pipelines', 'Infrastructure as Code']
     },
     {
         id: 'ml',
-        name: 'Machine Learning & Data',
-        skills: ['TensorFlow', 'PyTorch', 'Scikit-Learn', 'Deep Learning', 'CNN', 'Data Processing']
+        name: '🧠 Machine Learning & Data',
+        skills: ['TensorFlow', 'PyTorch', 'Scikit-Learn', 'Deep Learning', 'CNN', 'Signal Processing', 'Data Pipelines', 'Model Deployment']
+    },
+    {
+        id: 'tools',
+        name: '🛠️ Tools & Practices',
+        skills: ['Git', 'Linux', 'Agile/Scrum', 'Code Reviews', 'Technical Documentation', 'On-Call Operations', 'Load Testing', 'Incident Management']
     }
 ];
 /**

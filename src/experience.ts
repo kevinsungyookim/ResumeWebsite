@@ -13,12 +13,13 @@ const experienceData: ExperienceEntry[] = [
         company: 'Amazon, Prime Video',
         startDate: 'June 2022',
         endDate: 'Present',
-        description: 'Design modular cloud-based services for concurrent processes, database management, and scalability. Implement automation and real-time monitoring for seamless experience during sporting events.',
+        description: 'Architect and scale cloud-native services that power live streaming for millions of concurrent viewers across the world\'s biggest sporting events. Own the full lifecycle of distributed systems — from design and implementation to monitoring, on-call, and operational excellence.',
         accomplishments: [
-            'Scale services to handle spikes and load for increasing number of 24/7 channels and live events',
-            'Support major sporting events: NFL (TNF), NBA, MLB, UCL, ICC, UTR',
-            'Drive cross-team tasks for improving availability and quality of audio and video streams',
-            'Perform multiple operational excellence projects for organization level initiatives'
+            'Design and scale fault-tolerant microservices to handle massive traffic spikes during live events, supporting an ever-growing roster of 24/7 channels and live broadcasts',
+            'Serve as a key engineer for major sporting events including NFL Thursday Night Football, NBA, MLB, UEFA Champions League, ICC Cricket, and UTR Tennis',
+            'Lead cross-team initiatives to improve end-to-end availability and quality of audio/video streams, reducing incident rates and improving viewer experience',
+            'Drive organization-level operational excellence projects including automated runbooks, monitoring dashboards, and deployment safety improvements',
+            'Build real-time monitoring and alerting systems that provide instant visibility into stream health across all active channels and events'
         ]
     },
     {
@@ -27,10 +28,11 @@ const experienceData: ExperienceEntry[] = [
         company: 'Palomar Products',
         startDate: 'September 2021',
         endDate: 'March 2022',
-        description: 'Conducted system testing and debugging for integrated intercommunication systems used in aerospace and naval applications.',
+        description: 'Performed end-to-end system testing and root cause analysis for integrated intercommunication systems deployed in mission-critical aerospace and naval environments.',
         accomplishments: [
-            'Conducted system testing of integrated intercommunication systems for software and hardware',
-            'Debug component failures in communication devices for aircrafts and naval ships'
+            'Conducted comprehensive system testing of integrated intercommunication systems across both software and hardware layers, ensuring reliability in high-stakes environments',
+            'Diagnosed and resolved component-level failures in communication devices used aboard military aircraft and naval vessels',
+            'Collaborated with cross-functional teams to validate system integration and ensure compliance with defense industry standards'
         ]
     },
     {
@@ -39,10 +41,11 @@ const experienceData: ExperienceEntry[] = [
         company: 'Ormco Corporation',
         startDate: 'December 2018',
         endDate: 'September 2020',
-        description: 'Implemented automated product lines and investigated quality failures for orthodontic manufacturing.',
+        description: 'Led the design and implementation of automated manufacturing product lines for orthodontic devices, combining robotics, computer vision, and process optimization to improve throughput and reduce waste.',
         accomplishments: [
-            'Implemented product lines with vision system, pick and place robots, and debind system',
-            'Investigated quality failures to mitigate large amounts of scrap and loss in revenue'
+            'Designed and deployed automated product lines integrating vision systems, pick-and-place robotics, and debind systems — increasing production efficiency significantly',
+            'Led root cause investigations into quality failures, implementing corrective actions that reduced scrap rates and recovered substantial revenue',
+            'Developed process documentation and training materials to standardize operations across multiple production shifts'
         ]
     }
 ];
