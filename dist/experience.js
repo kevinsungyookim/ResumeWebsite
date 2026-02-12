@@ -8,44 +8,40 @@ import { initAnimations } from './shared/animations.js';
 const experienceData = [
     {
         id: 'exp-1',
-        title: 'Senior Software Developer',
-        company: 'Tech Solutions Inc.',
-        startDate: '2022-01',
+        title: 'Software Engineer II',
+        company: 'Amazon, Prime Video',
+        startDate: 'June 2022',
         endDate: 'Present',
-        description: 'Lead development of modern web applications using TypeScript and React. Mentor junior developers and establish coding standards.',
+        description: 'Design modular cloud-based services for concurrent processes, database management, and scalability. Implement automation and real-time monitoring for seamless experience during sporting events.',
         accomplishments: [
-            'Architected and implemented scalable frontend solutions',
-            'Reduced page load times by 40% through optimization',
-            'Mentored team of 5 junior developers',
-            'Established CI/CD pipelines and testing practices'
+            'Scale services to handle spikes and load for increasing number of 24/7 channels and live events',
+            'Support major sporting events: NFL (TNF), NBA, MLB, UCL, ICC, UTR',
+            'Drive cross-team tasks for improving availability and quality of audio and video streams',
+            'Perform multiple operational excellence projects for organization level initiatives'
         ]
     },
     {
         id: 'exp-2',
-        title: 'Software Developer',
-        company: 'Digital Innovations LLC',
-        startDate: '2020-03',
-        endDate: '2021-12',
-        description: 'Developed full-stack web applications and RESTful APIs. Collaborated with cross-functional teams to deliver high-quality software.',
+        title: 'Software Engineer II',
+        company: 'Palomar Products',
+        startDate: 'September 2021',
+        endDate: 'March 2022',
+        description: 'Conducted system testing and debugging for integrated intercommunication systems used in aerospace and naval applications.',
         accomplishments: [
-            'Built responsive web applications with modern frameworks',
-            'Designed and implemented RESTful APIs',
-            'Collaborated with UX designers on user interface improvements',
-            'Participated in code reviews and agile ceremonies'
+            'Conducted system testing of integrated intercommunication systems for software and hardware',
+            'Debug component failures in communication devices for aircrafts and naval ships'
         ]
     },
     {
         id: 'exp-3',
-        title: 'Junior Developer',
-        company: 'StartUp Ventures',
-        startDate: '2018-06',
-        endDate: '2020-02',
-        description: 'Contributed to various web development projects. Gained experience in modern JavaScript frameworks and development workflows.',
+        title: 'Process Engineer (PIM)',
+        company: 'Ormco Corporation',
+        startDate: 'December 2018',
+        endDate: 'September 2020',
+        description: 'Implemented automated product lines and investigated quality failures for orthodontic manufacturing.',
         accomplishments: [
-            'Developed features for customer-facing web applications',
-            'Fixed bugs and improved application performance',
-            'Wrote unit tests and documentation',
-            'Learned and applied best practices in software development'
+            'Implemented product lines with vision system, pick and place robots, and debind system',
+            'Investigated quality failures to mitigate large amounts of scrap and loss in revenue'
         ]
     }
 ];
@@ -78,10 +74,27 @@ export function renderExperienceEntry(entry) {
 export function renderExperienceSection(entries) {
     // Sort by start date in reverse chronological order (newest first)
     const sortedEntries = [...entries].sort((a, b) => {
-        // Handle "Present" as the most recent date
-        const dateA = a.endDate === 'Present' ? '9999-12' : a.endDate;
-        const dateB = b.endDate === 'Present' ? '9999-12' : b.endDate;
-        return dateB.localeCompare(dateA);
+        // Convert date strings to comparable format
+        const parseDate = (dateStr) => {
+            if (dateStr === 'Present')
+                return 99991231;
+            // Handle formats like "June 2022" or "2022-01"
+            const monthMap = {
+                'January': '01', 'February': '02', 'March': '03', 'April': '04',
+                'May': '05', 'June': '06', 'July': '07', 'August': '08',
+                'September': '09', 'October': '10', 'November': '11', 'December': '12'
+            };
+            // Try to parse "Month YYYY" format
+            const parts = dateStr.split(' ');
+            if (parts.length === 2 && monthMap[parts[0]]) {
+                return parseInt(parts[1] + monthMap[parts[0]]);
+            }
+            // Try to parse "YYYY-MM" format
+            return parseInt(dateStr.replace('-', ''));
+        };
+        const dateA = parseDate(a.startDate);
+        const dateB = parseDate(b.startDate);
+        return dateB - dateA; // Descending order (newest first)
     });
     return sortedEntries.map(entry => renderExperienceEntry(entry)).join('\n');
 }

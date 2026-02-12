@@ -7,24 +7,24 @@ import { initAnimations } from './shared/animations.js';
  */
 const skillsData = [
     {
-        id: 'frontend',
-        name: 'Frontend Development',
-        skills: ['TypeScript', 'JavaScript', 'React', 'Vue.js', 'HTML5', 'CSS3', 'Sass', 'Tailwind CSS']
+        id: 'core',
+        name: 'Core Competencies',
+        skills: ['Software Development', 'Cloud Computing (AWS)', 'Distributed Systems', 'CI/CD']
     },
     {
-        id: 'backend',
-        name: 'Backend Development',
-        skills: ['Node.js', 'Express', 'Python', 'FastAPI', 'RESTful APIs', 'GraphQL']
+        id: 'languages',
+        name: 'Programming Languages',
+        skills: ['Java', 'Python', 'TypeScript', 'JavaScript', 'C', 'C++', 'HTML', 'CSS']
     },
     {
-        id: 'database',
-        name: 'Databases',
-        skills: ['PostgreSQL', 'MongoDB', 'Redis', 'MySQL', 'DynamoDB']
+        id: 'cloud',
+        name: 'Cloud & DevOps',
+        skills: ['AWS Lambda', 'AWS IoT Analytics', 'AWS SageMaker', 'Docker', 'CI/CD Pipelines']
     },
     {
-        id: 'tools',
-        name: 'Tools & Technologies',
-        skills: ['Git', 'Docker', 'AWS', 'CI/CD', 'Jest', 'Vitest', 'Webpack', 'Vite']
+        id: 'ml',
+        name: 'Machine Learning & Data',
+        skills: ['TensorFlow', 'PyTorch', 'Scikit-Learn', 'Deep Learning', 'CNN', 'Data Processing']
     }
 ];
 /**

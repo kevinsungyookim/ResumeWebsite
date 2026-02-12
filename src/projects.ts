@@ -9,27 +9,17 @@ import { initAnimations } from './shared/animations.js';
 const projectsData: ProjectEntry[] = [
     {
         id: 'proj-1',
-        title: 'E-Commerce Platform',
-        description: 'Full-stack e-commerce solution with real-time inventory management, payment processing, and order tracking. Built with modern web technologies for optimal performance.',
-        technologies: ['TypeScript', 'React', 'Node.js', 'PostgreSQL', 'Redis'],
-        liveUrl: 'https://example-ecommerce.com',
-        repoUrl: 'https://github.com/example/ecommerce',
-        imageUrl: '/images/ecommerce-project.jpg'
+        title: 'Deep PPG for Better Heart Rate Estimation',
+        description: 'Created a CNN architecture to process photoplethysmography (PPG) data for accurate heart rate estimation. Tested various parameters including activation functions, optimizers, and filter sizes to achieve low mean absolute error (MAE).',
+        technologies: ['Python', 'TensorFlow', 'PyTorch', 'Deep Learning', 'CNN'],
+        repoUrl: 'https://github.com/kevinsungyookim/Deep-PPG'
     },
     {
         id: 'proj-2',
-        title: 'Task Management System',
-        description: 'Collaborative task management application with real-time updates, team collaboration features, and advanced filtering capabilities.',
-        technologies: ['Vue.js', 'Express', 'MongoDB', 'Socket.io'],
-        liveUrl: 'https://example-tasks.com',
-        repoUrl: 'https://github.com/example/task-manager'
-    },
-    {
-        id: 'proj-3',
-        title: 'Analytics Dashboard',
-        description: 'Data visualization dashboard for business intelligence with interactive charts, custom reports, and export functionality.',
-        technologies: ['React', 'D3.js', 'Python', 'FastAPI', 'Docker'],
-        repoUrl: 'https://github.com/example/analytics-dashboard'
+        title: 'Cloud Infrastructure to Predict Abnormal Heartbeats',
+        description: 'Deployed machine learning inference model using AWS Lambda with visualization of output through AWS IoT Analytics. Built end-to-end cloud infrastructure for real-time heartbeat anomaly detection.',
+        technologies: ['AWS Lambda', 'AWS IoT Analytics', 'AWS SageMaker', 'Python', 'Machine Learning'],
+        repoUrl: 'https://github.com/kevinsungyookim/Heartbeat-Prediction'
     }
 ];
 
